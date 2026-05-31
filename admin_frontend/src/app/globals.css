@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --admin-bg: #0d0f14;
+  --admin-panel: #141720;
+  --admin-card: #1c2030;
+  --admin-border: #262c3e;
+  --admin-accent: #4ade80;
+  --admin-accent2: #22d3ee;
+  --admin-user-msg: #1e293b;
+  --admin-admin-msg: #14532d;
+  --admin-agent-msg: #1e3a4a;
+  --admin-text: #e2e8f0;
+  --admin-muted: #64748b;
+  --admin-danger: #f87171;
+
+  --background: var(--admin-bg);
+  --foreground: var(--admin-text);
+  --card: var(--admin-card);
+  --card-foreground: var(--admin-text);
+  --popover: var(--admin-panel);
+  --popover-foreground: var(--admin-text);
+  --primary: var(--admin-accent);
+  --primary-foreground: #0d0f14;
+  --secondary: var(--admin-card);
+  --secondary-foreground: var(--admin-text);
+  --muted: var(--admin-panel);
+  --muted-foreground: var(--admin-muted);
+  --accent: var(--admin-card);
+  --accent-foreground: var(--admin-text);
+  --destructive: var(--admin-danger);
+  --destructive-foreground: #ffffff;
+  --border: var(--admin-border);
+  --input: var(--admin-border);
+  --ring: var(--admin-accent);
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-admin-bg: var(--admin-bg);
+  --color-admin-panel: var(--admin-panel);
+  --color-admin-card: var(--admin-card);
+  --color-admin-border: var(--admin-border);
+  --color-admin-accent: var(--admin-accent);
+  --color-admin-accent2: var(--admin-accent2);
+  --color-admin-user-msg: var(--admin-user-msg);
+  --color-admin-admin-msg: var(--admin-admin-msg);
+  --color-admin-agent-msg: var(--admin-agent-msg);
+  --color-admin-text: var(--admin-text);
+  --color-admin-muted: var(--admin-muted);
+  --color-admin-danger: var(--admin-danger);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-heading: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--admin-bg);
+  color: var(--admin-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--admin-border) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--admin-border);
+  border-radius: 4px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.25s ease-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}

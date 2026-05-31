@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from fastapi.requests import Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -23,15 +24,23 @@ def register_middleware(app: FastAPI):
         print(message)
         return response
 
+    # ─── CORS Origins from environment variable ─────────────────────────
+    cors_origins_str = os.getenv("CORS_ORIGINS", "*")
+    cors_origins = [origin.strip() for origin in cors_origins_str.split(",")]
+
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["*"],
+        allow_origins=cors_origins,
         allow_methods=["*"],
         allow_headers=["*"],
         allow_credentials=True,
     )
 
+    # ─── Trusted Hosts from environment variable ────────────────────────
+    trusted_hosts_str = os.getenv("TRUSTED_HOSTS", "localhost,127.0.0.1,0.0.0.0")
+    trusted_hosts = [host.strip() for host in trusted_hosts_str.split(",")]
+
     app.add_middleware(
         TrustedHostMiddleware,
-        allowed_hosts=["localhost", "127.0.0.1" ,"bookly-api-dc03.onrender.com","0.0.0.0"],
+        allowed_hosts=trusted_hosts,
     )

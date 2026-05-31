@@ -1,0 +1,31 @@
+[project]
+name = "novatech-chatbot"
+
+# ─── Main Backend (FastAPI + LangGraph) ──────────────────────────────
+[service.main-backend]
+dockerfilePath = "Dockerfile.backend"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[service.main-backend.variables]
+PORT = "8000"
+PYTHON_VERSION = "3.11"
+
+# ─── Admin Backend (FastAPI WebSocket) ───────────────────────────────
+[service.admin-backend]
+dockerfilePath = "Dockerfile.admin-backend"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[service.admin-backend.variables]
+PORT = "8002"
+PYTHON_VERSION = "3.11"
+
+# ─── Celery Worker ──────────────────────────────────────────────────
+[service.celery-worker]
+dockerfilePath = "Dockerfile.celery"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[service.celery-worker.variables]
+PYTHON_VERSION = "3.11"

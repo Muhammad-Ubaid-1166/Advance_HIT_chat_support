@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --chat-bg: #0a0b0f;
+  --chat-surface: #111318;
+  --chat-card: #181c26;
+  --chat-border: #1f2535;
+  --chat-accent: #6366f1;
+  --chat-accent-dim: #312e81;
+  --chat-accent-glow: rgba(99, 102, 241, 0.2);
+  --chat-green: #34d399;
+  --chat-agent-msg: #0f2027;
+  --chat-text: #dde1f0;
+  --chat-muted: #525878;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-chat-bg: var(--chat-bg);
+  --color-chat-surface: var(--chat-surface);
+  --color-chat-card: var(--chat-card);
+  --color-chat-border: var(--chat-border);
+  --color-chat-accent: var(--chat-accent);
+  --color-chat-green: var(--chat-green);
+  --color-chat-text: var(--chat-text);
+  --color-chat-muted: var(--chat-muted);
+  --color-chat-agent-msg: var(--chat-agent-msg);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes typing-bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
